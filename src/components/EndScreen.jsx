@@ -44,7 +44,9 @@ export default function EndScreen({ updateList , toIntiligencePage}) {
         <span style={opacity} className="pinkDeco"></span>
         <h2 className="endTitle">תוצאות השאלון:</h2>
         <PieChart></PieChart>
-        <button id="toIntiligancePage" onClick={intiligancePage}>לעמוד אינטלגנציה</button>
+       <p className="textIntiligence">רוצים לדעת יותר על האיטליגנציות?</p>
+       <p className="whiteBackGround" onClick={intiligancePage}>לחץ כאן</p>
+        {/* <button id="toIntiligancePage" onClick={intiligancePage}>לעמוד אינטלגנציות</button> */}
     </>
     )
 }

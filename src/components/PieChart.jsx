@@ -57,16 +57,9 @@ export default function PieChart() {
         [`${QUESTIONSDATA[5].kind}`, QUESTIONSDATA[5].checked],
 
     ];
-    //   const data = [
-    //         ["Task", "Hours per Day"],
-    //         ["Work", 11],
-    //         ["Eat", 2],
-    //         ["Commute", 2],
-    //         ["Watch TV", 2],
-    //         ["Sleep", 7],
-    //       ];
+  
     const options = {
-        // title: "My Daily Activities",
+ 
         colors: [
             `${QUESTIONSDATA[0].color}`,
             `${QUESTIONSDATA[1].color}`,
@@ -94,7 +87,7 @@ export default function PieChart() {
             data={data}
             options={options}
             width={"100%"}
-            height={"40%"}
+            height={"60%"}
             className="pieChartStyle"
         /></>
     )

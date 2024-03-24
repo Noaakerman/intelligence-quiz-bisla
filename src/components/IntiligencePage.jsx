@@ -1,7 +1,7 @@
 import { QUESTIONSDATA } from "./dataQustion";
 import { useState } from "react";
 import Intiligence from './Intiligence.jsx';
-
+import Menu from "./Menu.jsx";
 export default function IntiligencePage({changeScreen}) {
 
     const [chosenIntilligence, setChosenIntilligence] = useState('');
@@ -29,6 +29,7 @@ export default function IntiligencePage({changeScreen}) {
     }
 
     return <>
+    {/* <Menu></Menu> */}
      <span class="blueFrameBig"></span>
         {!ifChosen ?
             <div class="listIntiligence">
@@ -41,7 +42,7 @@ export default function IntiligencePage({changeScreen}) {
                         </li>
                     )}
                 </ul>
-                <button onClick={changeScreen}>לדף הראשי</button>
+                {/* <button onClick={changeScreen}>לדף הראשי</button> */}
             </div>
             :
             <Intiligence chosenIntilligence={chosenIntilligence} backToScreen={backToScreen} />}

@@ -6,42 +6,38 @@ import EndScreen from "./components/EndScreen.jsx";
 import "./index.css";
 import IntiligencePage from "./components/IntiligencePage.jsx";
 import ChoosenPage from "./components/ChoosenPage.jsx";
-
+import Menu from "./components/Menu.jsx";
 function App() {
 
   const [currentScreen, setcurrentScreen] = useState(0);
   const [endList, setEndList] = useState([]);
 
-  function changeScreen() {
-    setcurrentScreen(currentScreen + 1);
-    // console.log(updatedList);
-  };
-  function IntiligenceScreen() {
-    setcurrentScreen(currentScreen + 1)
-  }
-  function changeScreenChoosen(toPage){
+  function changeScreenChoosen(toPage) {
     setcurrentScreen(toPage);
   }
   return <main id="openScreen">
 
+    {/* <IntiligencePage></IntiligencePage> */}
     {currentScreen === 0 ?
-      <OpenScreenAnimation changeScreen={()=>{
+      <OpenScreenAnimation changeScreen={() => {
         setcurrentScreen(1)
-      }}  /> :
-      currentScreen === 1 ? <ChoosenPage changePage={(changeScreenChoosen)}/> : 
-      currentScreen === 2 ?<MainScreen changeScreen={()=>{
-        setcurrentScreen(3)
       }} /> :
-        currentScreen === 3 ? <EndScreen updateList={endList} toIntiligencePage={()=>{
-          setcurrentScreen(4)
-        }}/> :
-          currentScreen === 4 ? <IntiligencePage changeScreen={()=>{
-            setcurrentScreen(1);
-          }}/> :
-            null
+      currentScreen === 1 ? <ChoosenPage changePage={(changeScreenChoosen)} /> :
+        currentScreen === 2 ? <MainScreen changeScreen={() => {
+          setcurrentScreen(3)
+        }} /> :
+          currentScreen === 3 ?
+            <><EndScreen updateList={endList} toIntiligencePage={() => {
+              setcurrentScreen(4)
+
+            }} />
+              <Menu handleMenu={(changeScreenChoosen)} /></> :
+
+            currentScreen === 4 ? <><IntiligencePage changeScreen={() => {
+              setcurrentScreen(1);
+            }} />  <Menu handleMenu={(changeScreenChoosen)} /></> :
+              null
     }
-
-
   </main>
 
 }

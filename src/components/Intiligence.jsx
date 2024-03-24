@@ -1,8 +1,16 @@
 import { QUESTIONSDATA } from "./dataQustion";
 import { useState } from "react";
+import MathScreen from "./mathScreen";
+import VisualScreen from "./VisualScreen";
+import MoveScreen from "./MoveScreen";
+import BetweenPersonScreen from "./BetweenPersonScreen";
+import InsidePersonScreen from "./InsidePersonScreen";
+import LanguetScreen from "./LanguetScreen";
 
 export default function Intiligence({ chosenIntilligence, backToScreen }) {
+
     const [ifBack, setIfBack] = useState(false)
+    var twoPlacesList = [1, 2];
     var myIntilligance = [];
     for (let i = 0; i < QUESTIONSDATA.length; i++) {
         if (QUESTIONSDATA[i].kind === chosenIntilligence) {
@@ -18,29 +26,29 @@ export default function Intiligence({ chosenIntilligence, backToScreen }) {
 
     function handleBackButton() {
         setIfBack(true);
-        setTimeout(() => {
-            backToScreen();
-        }, 2000);
-
+        backToScreen();
     }
-    return <>
-        {/* <span class="blueFrameBig"></span>
-        <span className="circleChosenIntilligance" style={circleStyle}></span>
-        <h5>{`${myIntilligance.kind} - ${myIntilligance.text[0]}`}</h5>
 
-        <ul className="text" style={{ animation: "inside1 3s 1s forwards" }}>
-            {myIntilligance.text[1].map((sentece1, i) =>
-                <li><p className="sentence" style={i === 0 ? { textDecoration: "underline" } : null}>{sentece1}</p></li>)}
-        </ul>
-        <ul className="text" style={{ animation: "inside2 3s 4s forwards" }}>
-            {myIntilligance.text[2].map((sentece2, j) =>
-                <li><p className="sentence" style={j === 0 ? { textDecoration: "underline"  } : null}>{sentece2}</p></li>)}
-        </ul> */}
-        <span style={ifBack ? { animation: "blueFrameSmaller 2s  alternate" } : { animation: "blueFrameBiger 2s  alternate" }} class="blueFrameBigFront"></span>
+    return <>
+        {/* <span style={ifBack ? { animation: "blueFrameSmaller 2s  alternate" } : { animation: "blueFrameBiger 2s  alternate" }} class="blueFrameBigFront"></span>
         <img className="intiliiganceBackground"
         style={ifBack ? { animation: "lowOpacity 1.5s forwards" } : {  animation: "highOpacity 1.5s forwards"}}
-        src={require(`../assets/screens/${myIntilligance.number}.png`)} /> 
+        src={require(`../assets/screens/${myIntilligance.number}.png`)} />  */}
         {/* {/* <div className="intiliiganceBackground" style={{backgroundImage : `url("./assets/screens/${myIntilligance.number}.png")`}}></div> */}
-        <button id="btntoIntiligence" onClick={handleBackButton}>חזור</button>
+        {myIntilligance.number === 0 ?
+            <MathScreen myIntilligance={myIntilligance} handleBackButton={handleBackButton} /> :
+            myIntilligance.number === 1 ?
+                <VisualScreen myIntilligance={myIntilligance} handleBackButton={handleBackButton} />
+                : myIntilligance.number === 2 ?
+                    <MoveScreen myIntilligance={myIntilligance} handleBackButton={handleBackButton} />
+                    : myIntilligance.number === 3 ?
+                        <BetweenPersonScreen myIntilligance={myIntilligance} handleBackButton={handleBackButton} />
+                        : myIntilligance.number === 4 ?
+                            <InsidePersonScreen myIntilligance={myIntilligance} handleBackButton={handleBackButton} /> :
+                            <LanguetScreen myIntilligance={myIntilligance} handleBackButton={handleBackButton} />}
+        <button id="btntoIntiligence" onClick={() => handleBackButton()}>חזור</button>
+
+
+
     </>
 }

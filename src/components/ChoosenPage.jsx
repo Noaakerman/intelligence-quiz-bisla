@@ -1,24 +1,39 @@
 import { useState } from "react";
 
 export default function ChoosenPage({ changePage }) {
+    const [playAniamtion1, setPlayAnimation1] = useState({ animation: "buttonsAnimation 2s forwards infinite" })
+    const [playAniamtion2, setPlayAnimation2] = useState({ animation: "buttonsAnimation 2s forwards infinite" })
+
     const highOpacity = { animation: "highOpacity 2s" };
     function handleClickBtn(event) {
         if (event.target.id === "toMain") {
-            changePage(2)
+            setPlayAnimation1({ animation: "playAnimation 2s forwards infinite" })
+
+            setTimeout(() => {
+                changePage(2)
+            }, 2000);
+
         }
         else if (event.target.id === "toIntiligence") {
-            changePage(4)
+            setPlayAnimation2({ animation: "playAnimation 2s forwards infinite" })
+            setTimeout(() => {
+                changePage(4)
+            }, 2000);
         }
     }
     return <>
-        <span className="blueFrameBig"></span>
+
         <div style={highOpacity}>
+        <span className="blueFrameBig"></span>
             <span className="orangeDeco"></span>
             <span className="pinkDeco"></span>
             <h2>במה תרצי/ה להתחיל?</h2>
             <div className="chossenbtnsConatiner" onClick={handleClickBtn}>
-                <button id="toMain">לשאלון</button>
-                <button id="toIntiligence">לאינטיליגנציות</button>
+                <div className="toMain buttonsChoosePage">לשאלון</div>
+                <div id="toMain" className="play1" style={playAniamtion1}></div>
+                <div className="toIntiligence buttonsChoosePage" >לאינטיליגנציות</div>
+                <div id="toIntiligence" className="play2" style={playAniamtion2}></div>
+
             </div></div>
     </>
 }

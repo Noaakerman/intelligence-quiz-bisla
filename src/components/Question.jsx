@@ -1,4 +1,4 @@
-import React, { useState ,useRef} from "react";
+import React, { useState, useRef } from "react";
 import EndScreen from "./EndScreen.jsx";
 
 export default function Question({ QUESTIONSDATA, changeScreen }) {
@@ -7,22 +7,26 @@ export default function Question({ QUESTIONSDATA, changeScreen }) {
     const listRef = useRef(null);
     const scrollToPosition = (position) => {
         if (listRef.current) {
-          listRef.current.scrollTo({
-            top: position,
-            behavior: 'smooth' // Optional: Adds smooth scrolling effect
-          });
+            listRef.current.scrollTo({
+                top: position,
+                behavior: 'smooth' // Optional: Adds smooth scrolling effect
+            });
         }
-      };
-    
+    };
+
     const handleCheck = (event) => {
         var updatedList = [...checked];
         var firstLetter = event.target.value[4];
 
         if (firstLetter === "f") {
-            QUESTIONSDATA[event.target.value[0]].data[event.target.value[2]].check=true;
+            QUESTIONSDATA[event.target.value[0]].data[event.target.value[2]].check = true;
+            QUESTIONSDATA[event.target.value[0]].checked = QUESTIONSDATA[event.target.value[0]].checked + 1;
+
             updatedList = [...checked, event.target.value[0]];
         } else {
-            QUESTIONSDATA[event.target.value[0]].data[event.target.value[2]].check=false;
+            QUESTIONSDATA[event.target.value[0]].data[event.target.value[2]].check = false;
+            QUESTIONSDATA[event.target.value[0]].checked = QUESTIONSDATA[event.target.value[0]].checked - 1;
+
             updatedList.splice(checked.indexOf(event.target.value[0]), 1);
         }
         setChecked(updatedList);
@@ -44,7 +48,7 @@ export default function Question({ QUESTIONSDATA, changeScreen }) {
     }
     return <>
 
-        <ul id="questionsArrayContainer"  ref={listRef}>
+        <ul id="questionsArrayContainer" ref={listRef}>
             {QUESTIONSDATA.map((questions) =>
 
                 <li >
@@ -53,7 +57,7 @@ export default function Question({ QUESTIONSDATA, changeScreen }) {
                             (questions.data).map((question, j) =>
                                 <li >
                                     <div id="questionContainer">
-                                        <input value={[questions.number,j,question.check]} onChange={handleCheck} checked={question.check} type="checkbox" />
+                                        <input value={[questions.number, j, question.check]} onChange={handleCheck} checked={question.check} type="checkbox" />
                                         <span>{question.question}</span>
                                     </div>
                                 </li>
@@ -63,10 +67,10 @@ export default function Question({ QUESTIONSDATA, changeScreen }) {
             )}
         </ul>
         {numQuestion === 5 ?
-            <div  id="btnEnd" onClick={handleEndBtn} /> :
-            <div id="btnNext"  onClick={handleNextBtn} />
+            <div id="btnEnd" onClick={handleEndBtn} /> :
+            <div id="btnNext" onClick={handleNextBtn} />
         }
-        {numQuestion > 0 ? <div id="btnBack" onClick={handleBackBtn}/> : null}
+        {numQuestion > 0 ? <div id="btnBack" onClick={handleBackBtn} /> : null}
     </>
-    
+
 }
