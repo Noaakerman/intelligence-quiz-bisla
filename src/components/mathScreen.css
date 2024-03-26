@@ -47,13 +47,6 @@
         top: 70%;
     }
 }
-
-.container {}
-
-/* .container h3 {
-    display: flex;
-    justify-content: center;
-} */
 .mathTitle {
     font-family: Karantina-bold;
     font-size: 5vh;
@@ -85,10 +78,6 @@
     font-size: 16vh;
 }
 
-ul {
-    /* text-decoration: none; */
-    /* list-style-type: none; */
-}
 
 ul li {
     /* margin:0.75rem 0rem; */
