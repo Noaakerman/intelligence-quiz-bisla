@@ -9,13 +9,13 @@ export default function Menu({ handleMenu }) {
     function clickedMenu() {
         if (menuClicked) {
             setAnimation1({ animation: "menuOut 1s forwards ease-in" });
-            setAnimation2({ animation: "blackDivClear 1s forwards ease-in" });
+            setAnimation2({ animation: "blackDivClear 1s forwards" });
             setTimeout(() => {
                 setMenuClicked(false)
             }, 1000);
         } else {
             setAnimation1({ animation: "menuIn 1s forwards ease-in" });
-            setAnimation2({ animation: "blackDivColor 1s forwards ease-in" });
+            setAnimation2({ animation: "blackDivColor 1s forwards" });
             setMenuClicked(true)
         }
     }

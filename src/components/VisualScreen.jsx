@@ -1,7 +1,10 @@
 export default function VisualScreen({ myIntilligance, handleBackButton }) {
     var twoPlacesList = [1, 2];
+    const tieAnimation = "tieAnimation 2s infinite";
+    const handAnimation= "handAnimation 2s infinite";
     return <>
-     <p className="intiligenceKind" style={{ color: `${myIntilligance.color}` }}>{myIntilligance.text[0]}</p>
+
+        <p className="intiligenceKind" style={{ color: `${myIntilligance.color}` }}>{myIntilligance.text[0]}</p>
         <div className="visualIntiligence">
             <ul className="visualContainer">
                 {twoPlacesList.map((place, j) =>
@@ -15,7 +18,8 @@ export default function VisualScreen({ myIntilligance, handleBackButton }) {
                                                 i === 1 && j === 0 ? "shadow" : i === 3 && j === 0 ? "orange" : "bold"}
                                             >{line}</p>
                                             {j === 0 && i === 2 || j === 0 && i === 3 ?
-                                                <img className="imgStyle" src={i === 2 ? require(`../assets/screens/tie.png`) : require(`../assets/screens/hand.png`)} />
+                                                <img className="imgStyle" src={i === 2 ? require(`../assets/screens/tie.png`) : require(`../assets/screens/hand.png`)}
+                                                    style={i === 2 ? { animation:"tieAnimation 2s infinite" , position:"absolute",left:"5%"} : { animation: "handAnimation 4s infinite" , position:"absolute",left:"12%"}} />
                                                 : null}
                                         </div>}
                                 </div>

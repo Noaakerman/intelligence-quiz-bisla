@@ -25,7 +25,7 @@ function App() {
       currentScreen === 1 ? <ChoosenPage changePage={(changeScreenChoosen)} /> :
         currentScreen === 2 ? <MainScreen changeScreen={() => {
           setcurrentScreen(3)
-        }} /> :
+        }} changeToScreenPage={() => { setcurrentScreen(1) }} /> :
           currentScreen === 3 ?
             <><EndScreen updateList={endList} toIntiligencePage={() => {
               setcurrentScreen(4)
