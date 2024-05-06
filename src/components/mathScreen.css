@@ -1,13 +1,13 @@
 .mathContainer {
+    animation: highOpacity 2s ease-in;
     display: flex;
     justify-content: space-between;
     width: 85%;
     height: 72%;
     position: absolute;
     right: -5%;
-    top: 15%;
+    top: 13%;
     flex-wrap: wrap;
-
 }
 
 .card {
@@ -47,13 +47,6 @@
         top: 70%;
     }
 }
-
-.container {}
-
-/* .container h3 {
-    display: flex;
-    justify-content: center;
-} */
 .mathTitle {
     font-family: Karantina-bold;
     font-size: 5vh;
@@ -85,10 +78,6 @@
     font-size: 16vh;
 }
 
-ul {
-    /* text-decoration: none; */
-    /* list-style-type: none; */
-}
 
 ul li {
     /* margin:0.75rem 0rem; */

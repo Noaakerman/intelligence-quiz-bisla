@@ -2,7 +2,7 @@ export default function InsidePersonScreen({ myIntilligance, handleBackButton })
     var twoPlacesList = [2, 1];
     return <>
         <p className="intiligenceKind" style={{ color: `${myIntilligance.color}` }}>{myIntilligance.text[0]}</p>
-        <div>
+        <div className="insidePersonContainer">
             <ul >
                 {twoPlacesList.map((place, j) =>
                     <ul className={j===1 ?

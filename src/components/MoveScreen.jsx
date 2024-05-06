@@ -2,7 +2,7 @@ export default function MoveScreen({ myIntilligance, handleBackButton }) {
     var twoPlacesList = [1, 2];
     return <>
      <p className="intiligenceKind" style={{color :`${myIntilligance.color}`}}>{myIntilligance.text[0]}</p>
-        <div className="backgroundMove"></div>
+        <div className="backgroundMove opacityMove"></div>
         <div className="moveIntiligence">
             <ul className="moveContainer">
                 {twoPlacesList.map((place, j) =>

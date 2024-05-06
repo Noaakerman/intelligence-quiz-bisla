@@ -42,6 +42,7 @@ export default function MathScreen({ myIntilligance, handleBackButton }) {
                     </BackSide>
                 </Flippy>
             )}
+            <div>mgsksljpewjmewpms</div>
         </div>
         {/* <p className="intiligenceKind" style={{ color: `${myIntilligance.color}` }}>{myIntilligance.text[0]}</p>
         {/* <div >

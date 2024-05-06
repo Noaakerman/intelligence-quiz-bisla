@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import EndScreen from "./EndScreen.jsx";
 
-export default function Question({ QUESTIONSDATA, changeScreen }) {
+export default function Question({ QUESTIONSDATA, changeScreen ,toChooseScreen}) {
     const [checked, setChecked] = useState([]);
     const [numQuestion, setnumQuestion] = useState(0);
     const listRef = useRef(null);
@@ -46,6 +46,9 @@ export default function Question({ QUESTIONSDATA, changeScreen }) {
     function handleEndBtn() {
         changeScreen(checked);
     }
+    function backToChoosePage(){
+        toChooseScreen();
+    }
     return <>
 
         <ul id="questionsArrayContainer" ref={listRef}>
@@ -70,7 +73,9 @@ export default function Question({ QUESTIONSDATA, changeScreen }) {
             <div id="btnEnd" onClick={handleEndBtn} /> :
             <div id="btnNext" onClick={handleNextBtn} />
         }
-        {numQuestion > 0 ? <div id="btnBack" onClick={handleBackBtn} /> : null}
+        {numQuestion > 0 ? <div id="btnBack" onClick={handleBackBtn} /> : 
+        <div id="btnBack" onClick={backToChoosePage} />
+        }
     </>
 
 }
